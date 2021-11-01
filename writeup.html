@@ -1,0 +1,208 @@
+<head>
+    <!-- the next three lines try to discourage browser from keeping page in cache -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="cache-control" content="no-store">
+
+    <title> COS426 Assignment 1 &mdash; Image Processing &mdash; Writeup</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+    <script src="js/student.js"> </script>
+    <script src="coursejs/writeup.js"> </script>
+    <div class="main_div">
+
+        <h1> <div class=assignment>COS426 Assignment 1</div>Image Processing &mdash; Batch Mode</h1>
+        <h2>Switch to: <a href='index.html'>Interactive Editor</a></h2>
+        <div class='selectable'>
+        <h2 id='student'></h2>
+        Using 1 Late Day!!!</br>
+        Features Implemented:
+<ul>
+<li>(0.0) <a href='#Brightness'>Brightness</a></li>
+<li>(0.5) <a href='#Contrast'>Contrast</a></li>
+<li>(0.5) <a href='#Gamma'>Gamma</a></li>
+<li>(0.5) <a href='#Vignette'>Vignette</a></li>
+<li>(0.5) <a href='#Saturation'>Saturation</a></li>
+<li>(1.5) <a href='#White+balance'>White balance</a></li>
+<li>(1.0) <a href='#Gaussian'>Gaussian</a></li>
+<li>(0.5) <a href='#Sharpen'>Sharpen</a></li>
+<li>(0.5) <a href='#Edge+detect'>Edge detect</a></li>
+<li>(1.0) <a href='#Median+filter'>Median filter</a></li>
+<li>(2.0) <a href='#Bilateral+filter'>Bilateral filter</a></li>
+<li>(0.0) <a href='#Quantize'>Quantize</a></li>
+<li>(0.5) <a href='#Random+dither'>Random dither</a></li>
+<li>(1.0) <a href='#Floyd-Steinberg+dither'>Floyd-Steinberg dither</a></li>
+<li>(1.0) <a href='#Ordered+dither'>Ordered dither</a></li>
+<li>(1.0) <a href='#Sampling'>Sampling</a></li>
+<li>(0.5) <a href='#Translate'>Translate</a></li>
+<li>(0.5) <a href='#Scale'>Scale</a></li>
+<li>(1.5) <a href='#Rotate'>Rotate</a></li>
+<li>(1.0) <a href='#Composite'>Composite</a></li>
+<li>(3.0) <a href='#Morph'>Morph</a></li>
+<li>(3.0) <a href='#Palette'>Palette</a></li>
+        </ul></div>
+
+<p><hr><p><a name='Brightness'></a><h2>Brightness</h2><p><hr><p>
+
+    This feature was implemented by the course staff.
+    I used it as an example of how to loop over the pixels in an image.
+    <p>
+    Here is an example output where the image is made brigher with
+    <a href='batch.html?Push%20Image=flower.jpg&Brightness=0.3'>the
+    luminance slider set to 0.3</a>:
+    <p>
+    <img src='results/luminance0.3.png'>
+    <p>
+    Here is an example output where the image is made darker with
+    <a href='batch.html?Push%20Image=flower.jpg&Brightness=-0.5'>the
+    luminance slider set to -0.5</a>:
+    <p>
+    <img src='results/luminance-0.5.png'>
+    <p>
+    I did not encounter any particular challenges in implementing this.
+
+<br>You can include as many results as you want, but please at least include the following results:<p><hr><p><a name='Contrast'></a><h2>Contrast</h2><p><hr><p>
+I implemented contrast by using the GIMP formula in the assignment description. 
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=leaves.jpg&Contrast=-1'>Push_Image=leaves.jpg&Contrast=-1</a>
+
+<br><img src='results/contrastneg.png'><br> <a href='batch.html?Push_Image=leaves.jpg&Contrast=0.7'>Push_Image=leaves.jpg&Contrast=0.7</a>
+
+<br><img src='results/contrast7.png'><br> <a href='batch.html?Push_Image=leaves.jpg&Contrast=-0.8'>Push_Image=leaves.jpg&Contrast=-0.8</a>
+
+<br><img src='results/contrastneg8.png'><p><hr><p><a name='Gamma'></a><h2>Gamma</h2><p><hr><p>
+Once again, this filter was fairly straight forward. I implemented gamma correction using the formulas provided and looping through every pixel and applying the formula.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=mesa.jpg&Gamma=1'>Push_Image=mesa.jpg&Gamma=1</a>
+
+<br><img src='results/gamma1.png'><br> <a href='batch.html?Push_Image=mesa.jpg&Gamma=-1.6'>Push_Image=mesa.jpg&Gamma=-1.6</a>
+
+<br><img src='results/gammaneg16.png'><p><hr><p><a name='Vignette'></a><h2>Vignette</h2><p><hr><p>
+We implemented vignette with linear light falloff in this implementation. Although we originally tried the COS^4 implementation, we were not confident this implementation was exactly perfect, so we switched to the linear implementation. 
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=mesa.jpg&Vignette=0.25;1'>Push_Image=mesa.jpg&Vignette=0.25;1</a>
+
+<br><img src='results/vignette1.png'><br> <a href='batch.html?Push_Image=mesa.jpg&Vignette=0;0.75'>Push_Image=mesa.jpg&Vignette=0;0.75</a>
+
+<br><img src='results/vignette2.png'><p><hr>
+
+<p><a name='Saturation'></a><h2>Saturation</h2><p><hr><p>
+Once again, this filter was straight forward to implement by just following the guidelines in the assignment page. We looped through every pixel, applied the formula, and clamped the value of the new pixel to ensure it didn't go out of bounds.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=leaves.jpg&Saturation=1'>Push_Image=leaves.jpg&Saturation=1</a>
+
+<br><img src='results/saturation1.png'><br> <a href='batch.html?Push_Image=leaves.jpg&Saturation=-0.5'>Push_Image=leaves.jpg&Saturation=-0.5</a>
+
+<br><img src='results/saturation2.png'><p><hr>
+    
+    <p><a name='White+balance'></a><h2>White balance</h2><p><hr><p>
+Converted each pixel to xyz colorspace and then converted the xyz pixel to the lms color space. doing this allowed us to perform the white balance operation as detailed in the assignment description.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=town.jpg&White_Balance=[0.5,0.5,0.5,1]'>Push_Image=town.jpg&White_Balance=[0.5,0.5,0.5,1]</a>
+
+<br><img src='results/whitebalance.png'><p><hr><p><a name='Gaussian'></a><h2>Gaussian</h2><p><hr><p>
+We created a linearly separable gaussian filter to improve speed. We padded by using the pixel values closest to the border. Besides this, we simply did what was on the assignment page.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=leaves.jpg&Gaussian=4'>Push_Image=leaves.jpg&Gaussian=4</a>
+
+<br><img src='results/gaussian1.png'><br> <a href='batch.html?Push_Image=man.jpg&Gaussian=7'>Push_Image=man.jpg&Gaussian=7</a>
+
+<br><img src='results/gaussian2.png'><p><hr><p><a name='Sharpen'></a><h2>Sharpen</h2><p><hr><p>
+We applied a 3x3 kernel with the center equal to 9 and the outside equal to -1. Once again, we padded with border values.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=leaves.jpg&Sharpen='>Push_Image=leaves.jpg&Sharpen=</a>
+
+<br><img src='results/sharpen1.png'><br> <a href='batch.html?Push_Image=woman.jpg&Sharpen='>Push_Image=woman.jpg&Sharpen=</a>
+
+<br><img src='results/sharpen2.png'><p><hr><p><a name='Edge+detect'></a><h2>Edge detect</h2><p><hr><p>
+We convolved with a 3x3 kernel like in the sharpening filter, but this time the center was set to 8. We then subtracted the resulting pixel value from 1 for better visualization. 
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=leaves.jpg&Edge='>Push_Image=leaves.jpg&Edge=</a>
+
+<br><img src='results/edge1.png'><br> <a href='batch.html?Push_Image=woman.jpg&Edge='>Push_Image=woman.jpg&Edge=</a>
+
+<br><img src='results/edge2.png'><p><hr><p><a name='Median+filter'></a><h2>Median filter</h2><p><hr><p>
+We convolved with a square filter that set the pixel value to the median of its neighbors. We did not apply quick-select, but rather just sorted and chose the median term.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=leaves.jpg&Median=3'>Push_Image=leaves.jpg&Median=3</a>
+
+<br><img src='results/median1.png'><br> <a href='batch.html?Push_Image=leaves.jpg&Median=5'>Push_Image=leaves.jpg&Median=5</a>
+
+<br><img src='results/median2.png'><br> <a href='batch.html?Push_Image=leaves.jpg&Median=8'>Push_Image=leaves.jpg&Median=8</a>
+
+<br><img src='results/median3.png'><p><hr><p><a name='Bilateral+filter'></a><h2>Bilateral filter</h2><p><hr><p>
+For the bilateral filter, we convolved with a window and applied the weights to each pixel as described in the assignment description. We made sure to normalize the weights so that the filter summed to 1.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=mesa.jpg&Bilateral=4;2'>Push_Image=mesa.jpg&Bilateral=4;2</a>
+
+<br><img src='results/bilateral1.png'><br> <a href='batch.html?Push_Image=mesa.jpg&Bilateral=5;3'>Push_Image=mesa.jpg&Bilateral=5;3</a>
+
+<br><img src='results/bilateral2.png'><p><hr><p><a name='Random+dither'></a><h2>Random dither</h2><p><hr><p>
+We applied the random dither protocol as described in the assignment description
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=mesa.jpg&Random='>Push_Image=mesa.jpg&Random=</a>
+
+<br><img src='results/randomdither.png'><p><hr><p><a name='Floyd-Steinberg+dither'></a><h2>Floyd-Steinberg dither</h2><p><hr><p>
+We applied the Floyd-Steinberg equation as seen in lecture. Little of note in this filter.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=mesa.jpg&Floyd-Steinberg='>Push_Image=mesa.jpg&Floyd-Steinberg=</a>
+
+<br><img src='results/floyd.png'><p><hr><p><a name='Ordered+dither'></a><h2>Ordered dither</h2><p><hr><p>
+Utilized the Bayer 4 kernel provided in the assignment description to perform the ordered dither algorithm.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=mesa.jpg&Ordered='>Push_Image=mesa.jpg&Ordered=</a>
+
+<br><img src='results/ordereddither.png'><p><hr><p><a name='Sampling'></a><h2>Sampling</h2><p><hr><p>
+For point sampling, we returned the nearest pixel to the x,y values passed into the arguments. For the bilinear sampling, we performed the protocol detailed in precept by taking the values around the pixel. If the x,y values were out of bounds, we took the nearest pixel in bounds.
+For the gaussian sampling, we performed a gaussian convolution around the pixel as described in precept and made sure to noramlize the weights so that the outcome summed to 1.
+
+<br>You can include as many results as you want, but please at least include the following results:<p><hr><p><a name='Translate'></a><h2>Translate</h2><p><hr><p>
+(Your description of your implementation of Translate goes here...)
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=flower.jpg&Translate=-317;-182;point'>Push_Image=flower.jpg&Translate=-317;-182;point</a>
+
+<br><img src='results/translate1.png'><br> <a href='batch.html?Push_Image=flower.jpg&Translate=-317;-182;bilinear'>Push_Image=flower.jpg&Translate=-317;-182;bilinear</a>
+
+<br><img src='results/translate2.png'><br> <a href='batch.html?Push_Image=flower.jpg&Translate=-317;-182;gaussian'>Push_Image=flower.jpg&Translate=-317;-182;gaussian</a>
+
+<br><img src='results/translate3.png'><p><hr><p><a name='Scale'></a><h2>Scale</h2><p><hr><p>
+We scaled using the protocol described in the assignment description
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=mesa.jpg&Scale=2.03;point'>Push_Image=mesa.jpg&Scale=2.03;point</a>
+
+<br><img src='results/scale1.png'><br> <a href='batch.html?Push_Image=mesa.jpg&Scale=2.03;bilinear'>Push_Image=mesa.jpg&Scale=2.03;bilinear</a>
+
+<br><img src='results/scale2.png'><br> <a href='batch.html?Push_Image=mesa.jpg&Scale=2.03;gaussian'>Push_Image=mesa.jpg&Scale=2.03;gaussian</a>
+
+<br><img src='results/scale3.png'><p><hr><p><a name='Rotate'></a><h2>Rotate</h2><p><hr><p>
+We attempted to perform rotate, but had problems ensuring the image fit within the bounds of the frame.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=mesa.jpg&Rotate=0.628318530718;point'>Push_Image=mesa.jpg&Rotate=0.628318530718;point</a>
+
+<br><img src='results/rotate1.png'><br> <a href='batch.html?Push_Image=mesa.jpg&Rotate=0.628318530718;bilinear'>Push_Image=mesa.jpg&Rotate=0.628318530718;bilinear</a>
+
+<br><img src='results/rotate2.png'><br> <a href='batch.html?Push_Image=mesa.jpg&Rotate=0.628318530718;gaussian'>Push_Image=mesa.jpg&Rotate=0.628318530718;gaussian</a>
+
+<br><img src='results/rotate3.png'><p><hr><p><a name='Composite'></a><h2>Composite</h2><p><hr><p>
+We performed composite in the same way that the assignment page instructed us to.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=man.jpg&Push_Image=doge.jpg&Push_Image=alpha.png&Get_Alpha=&Composite='>Push_Image=man.jpg&Push_Image=doge.jpg&Push_Image=alpha.png&Get_Alpha=&Composite=</a>
+
+<br><img src='results/composite.png'><p><hr><p><a name='Morph'></a><h2>Morph</h2><p><hr><p>
+Once again, we followed nearly step for step from the precept instructions for morph.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=chang.jpg&Push_Image=halber.jpg&Morph=(0,1,0.1)'>Push_Image=chang.jpg&Push_Image=halber.jpg&Morph=(0,1,0.1)</a>
+
+<br><img src='results/donaldtrump.gif'><p><hr><p><a name='Palette'></a><h2>Palette</h2><p><hr><p>
+For palette I used the Lloyd algorithm and intialized centroid to be primary colors to improve results. We then iterated through every pixel and assigned it to the closest centroid. Then we recalculated the centroids location in the color space.
+
+<br>You can include as many results as you want, but please at least include the following results:<br> <a href='batch.html?Push_Image=leaves.jpg&Palette=3'>Push_Image=leaves.jpg&Palette=3</a>
+
+<br><img src='results/palette.png'><p>
+<p><hr><p><a name='Collaboration'></a><h2>Collaboration</h2><p><hr><p>
+                Will Drury (wdrury)
+    </div>
+</body>
+</html>
